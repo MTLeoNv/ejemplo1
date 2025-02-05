@@ -1,0 +1,107 @@
+<header class="custom-navbar">
+  <a href="#" class="logo"><i class="ri-verified-badge-line"></i><span>EVALUACIÓN</span></a>
+  <ul class="navbar">
+    <li><a href="#" class="active">INICIO</a></li>
+    <li><a href="#">EJEMPLO 1</a></li>
+    <li><a href="#">EJEMPLO 2</a></li>
+    <li><a href="#">EJEMPLO 3</a></li>
+    <li><a href="#">EJEMPLO 4</a></li>
+    <li><a href="#">EJEMPLO 5</a></li>
+    <li><a href="#">EJERCICIO</a></li>
+  </ul>
+  <div class="main">
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Fundamentos de Angular</h1>
+
+    <div>
+      <h4>Interpolación</h4>
+      <p>Nombre del maestro: {{ nombre }}</p>
+      <p>Correo: {{ email }}</p>
+      <p>Años de Servicio: {{ aniosServicio }}</p>
+      <p>Uno más Uno = {{ 1 + 1 }}</p>
+      <p>Status: {{ estaActivo() }}</p>
+      <p>Total de alumnos: {{ sumarAlumnos() }}</p>
+    </div>
+
+    <p></p>
+
+    <div>
+      <h4>Condicional if</h4>
+      @if (aniosServicio >= 20) {
+        <p>Tiene mucha antigüedad</p>
+      } @else {
+        <p>No tiene mucha antigüedad</p>
+      }
+    </div>
+
+    <p></p>
+
+    <div>
+      <h4>Listado de Productos (for)</h4>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (producto of productos; track producto.id) {
+            <tr>
+              <td>{{ producto.id }}</td>
+              <td>{{ producto.descripcion }}</td>
+              <td>{{ producto.precio }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p></p>
+
+    <div>
+      <h4>Switch</h4>
+      @switch (numero) {
+        @case (1) {
+          <p>Uno</p>
+        }
+        @case (2) {
+          <p>Dos</p>
+        }
+        @case (3) {
+          <p>Tres</p>
+        }
+        @default {
+          <p>Es otro número</p>
+        }
+      }
+    </div>
+
+    <p></p>
+
+    <div>
+      <h4>Captura de eventos (event handler)</h4>
+      <h6>{{ contador }}</h6>
+      <button type="button" class="btn btn-success" (click)="incrementarContador()">Sumar</button>
+      <button type="button" class="btn btn-danger" (click)="decrementaContador()">Restar</button>
+    </div>
+
+    <p></p>
+
+    <div>
+      <h4>Property Binding</h4>
+      <button type="button" class="btn btn-primary" [disabled]="desactivarBoton">Guardar</button>
+      <button type="button" class="btn btn-success" (click)="cambiarValor()">Habilitar/Deshabilitar botón</button>
+    </div>
+
+    <p></p>
+  </div>
+</main>
+
+<router-outlet></router-outlet>
